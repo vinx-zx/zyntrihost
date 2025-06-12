@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up - ZyntriHost</title>
+  <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-auth-compat.js"></script>
+  <script src="assets/js/firebase-config.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <h2>Create ZyntriHost Account</h2>
+  <form onsubmit="signup(event)">
+    <input type="email" id="signupEmail" placeholder="Email" required><br>
+    <input type="password" id="signupPassword" placeholder="Password" required><br>
+    <button type="submit">Sign Up</button>
+  </form>
+  <p>Already have an account? <a href="login.html">Login</a></p>
+  <script>
+    function signup(e) {
+      e.preventDefault();
+      const email = document.getElementById('signupEmail').value;
+      const password = document.getElementById('signupPassword').value;
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then(() => {
+          alert('Account created!');
+          window.location.href = 'dashboard.html';
+        })
+        .catch(error => alert(error.message));
+    }
+  </script>
+</body>
+</html>

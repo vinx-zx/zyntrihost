@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ZyntriHost Dashboard</title>
+  <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore-compat.js"></script>
+  <script src="assets/js/firebase-config.js"></script>
+  <script src="assets/js/dashboard.js" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <h1>Welcome to ZyntriHost Dashboard</h1>
+  <p>Email: <span id="userEmail"></span></p>
+  <p>UID: <span id="userUID"></span></p>
+  <p>Plan: <span id="userPlan">Loading...</span></p>
+  <p>Subdomain: <span id="userSubdomain">Loading...</span></p>
+
+  <hr>
+
+  <h3>Select Hosting Plan:</h3>
+  <select id="planSelect">
+    <option value="Free">Free</option>
+    <option value="Pro">Pro</option>
+    <option value="Business">Business</option>
+  </select>
+  <button onclick="updatePlan()">Update Plan</button>
+
+  <h3>Generate Subdomain</h3>
+  <input type="text" id="subdomainInput" placeholder="yourname" />
+  <button onclick="saveSubdomain()">Save Subdomain</button>
+
+  <br><br>
+  <button onclick="logout()">Logout</button>
+</body>
+</html>
